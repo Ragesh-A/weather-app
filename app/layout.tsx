@@ -1,8 +1,11 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '100', '500', '700']
+})
 
 export const metadata: Metadata = {
   title: 'Weather App',
@@ -16,7 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${poppins.className} dark:bg-black dark:text-white`}>
+        {children}
+        </body>
     </html>
   )
 }
