@@ -3,28 +3,35 @@
 import { weatherContext } from '@/utils/WeatherContext';
 import React, { useState, useContext, useEffect } from 'react';
 import { BsSearch } from 'react-icons/bs';
+import { API_KEY } from '@/constant/constant'
 
 const SearchInput = () => {
   const { setData } = useContext(weatherContext);
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState('india');
 
   const handleSearch = async (event) => {
-    event.preventDefault();
+    event && event.preventDefault();
     const search = location.trim();
 
     if (search) {
       try {
-        const Url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${search}&days=1&aqi=yes&alerts=yes`;
+        const Url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${search}&days=1&aqi=yes&alerts=yes`;
         const response = await fetch(Url);
         const data = await response.json();
-        setData(data);
-      } catch (error) {}
+        if (!data.error) {
+          setData(data);
+          setLocation('')
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
     }
   };
 
-  console.log(process.env.API_KEY, 'env');
-
-  const [s, se] = useState();
+  useEffect(()=>{
+    handleSearch()
+  }, [])
+  
 
   return (
     <form

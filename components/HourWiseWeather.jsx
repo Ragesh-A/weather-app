@@ -24,17 +24,17 @@ const HourWiseWeather = () => {
   return (
     <div className="">
       Today at
-      <div className="flex gap-3 overflow-x-scroll md:flex-wrap py-3 scroll xl:justify-around">
+      <div className="flex gap-3 overflow-x-scroll md:flex-wrap pt-3 scroll xl:justify-around">
         {data?.forecast?.forecastday[0]?.hour?.map((element, index) =>
           index % 2 ? (
             <div
-              className="bg-gray-100 dark:bg-light-black p-4 rounded-xl flex-wrap min-w-[5rem] text-center"
+              className="bg-gray-100 dark:bg-light-black p-4 rounded-xl flex-wrap min-w-[5rem] text-center  xl:min-w-[100px]"
               key={element?.time_epoch}
             >
               <p>{getHour(element?.time)}</p>
               <Image
                 src={`https:${element?.condition?.icon}`}
-                width={15}
+                width={45}
                 height={15}
                 alt={element?.condition?.text}
                 className="mx-auto my-3"
