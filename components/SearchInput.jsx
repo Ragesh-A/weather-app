@@ -15,7 +15,7 @@ const SearchInput = () => {
 
     if (search) {
       try {
-        const Url = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${search}&days=1&aqi=yes&alerts=yes`;
+        const Url = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${search}&days=1&aqi=yes&alerts=yes`;
         const response = await fetch(Url);
         const data = await response.json();
         if (!data.error) {
