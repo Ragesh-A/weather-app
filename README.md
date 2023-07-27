@@ -1,3 +1,8 @@
+
+<h1 align='center'>Weather Snap</h1>
+
+![Screenshot (137)](https://github.com/Ragesh-A/weather-app/assets/118962921/66b53e5b-27f5-45c2-8a23-ee956e3f0df2)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
